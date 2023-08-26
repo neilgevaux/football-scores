@@ -3,7 +3,6 @@
 <% if @fixtures %>
 <pre><% JSON.pretty_generate(@fixtures) %></pre>
 
-<% @fixtures.each do |fixture| %>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -24,8 +23,6 @@
     <% end %>
   </tbody>
 </table>
-<% end %>
-
 
 <% else %>
   <p>Failed to fetch data.</p>
