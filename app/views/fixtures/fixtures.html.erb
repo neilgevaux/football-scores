@@ -7,8 +7,8 @@
   <thead>
     <tr>
       <th>Home Team</th>
-      <th>Away Team</th>
       <th>Home Goals</th>
+      <th>Away Team</th>
       <th>Away Goals</th>
     </tr>
   </thead>
@@ -16,8 +16,8 @@
     <% @fixtures["response"].each do |fixture| %>
       <tr>
         <td><%= fixture["teams"]["home"]["name"] %></td>
-        <td><%= fixture["teams"]["away"]["name"] %></td>
         <td><%= fixture["goals"]["home"] %></td>
+        <td><%= fixture["teams"]["away"]["name"] %></td>
         <td><%= fixture["goals"]["away"] %></td>
       </tr>
     <% end %>
