@@ -1,0 +1,36 @@
+<h1>Fixtures</h1>
+
+<% if @fixtures %>
+ <!-- > <pre><%= JSON.pretty_generate(@fixtures) %></pre> -->
+
+ # Assuming you have parsed the JSON response and stored it in @fixtures
+<% @fixtures.each do |fixture| %>
+  <table>
+    <thead>
+      <tr>
+        <th>Home Team</th>
+        <th>Away Team</th>
+        <th>Home Goals</th>
+        <th>Away Goals</th>
+        <th>Scorers</th>
+      </tr>
+    </thead>
+    <tbody>
+        <td><%= fixture["teams"]["home"]["name"] %></td>
+        <td><%= fixture["teams"]["away"]["name"] %></td>
+        <td><%= fixture["goals"]["home"] %></td>
+        <td><%= fixture["goals"]["away"] %></td>
+        <td>
+          <% fixture["scorers"].each do |scorer| %>
+            <%= scorer["name"] %> (<%= scorer["time"] %>')
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
+
+
+<% else %>
+  <p>Failed to fetch data.</p>
+<% end %>
