@@ -1,24 +1,26 @@
 <h1>Fixtures</h1>
 
 <% if @fixtures %>
-<pre><% JSON.pretty_generate(@fixtures) %></pre>
+<pre><%= JSON.pretty_generate(@fixtures) %></pre>
 
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>Date</th>
       <th>Home Team</th>
       <th>Home Goals</th>
-      <th>Away Team</th>
       <th>Away Goals</th>
+      <th>Away Team</th>
     </tr>
   </thead>
   <tbody>
     <% @fixtures["response"].each do |fixture| %>
       <tr>
+        <td><%= fixture["fixture"]["date"] %></td>
         <td><%= fixture["teams"]["home"]["name"] %></td>
         <td><%= fixture["goals"]["home"] %></td>
-        <td><%= fixture["teams"]["away"]["name"] %></td>
         <td><%= fixture["goals"]["away"] %></td>
+        <td><%= fixture["teams"]["away"]["name"] %></td>
       </tr>
     <% end %>
   </tbody>
