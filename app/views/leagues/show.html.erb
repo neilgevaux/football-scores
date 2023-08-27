@@ -1,0 +1,8 @@
+<h1>Leagues</h1>
+
+<% if @leagues %>
+<pre><%= JSON.pretty_generate(@leagues) %></pre> 
+
+<% else %>
+  <p>Failed to fetch data.</p>
+<% end %>
