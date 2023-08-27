@@ -1,0 +1,17 @@
+<h1>Teams</h1>
+
+<% if @teams %>
+<!-- <pre><% JSON.pretty_generate(@teams) %></pre> -->
+
+<ul>
+<% Team.all.each do |team| %>
+  <li>
+   <%= team.name %>
+  </li>
+  <% end %>
+</ul>
+
+
+<% else %>
+  <p>Failed to fetch data.</p>
+<% end %>
