@@ -1,7 +1,7 @@
 class CreateScores < ActiveRecord::Migration[7.0]
   def change
     create_table :scores do |t|
-      t.integer :id
+      t.integer :score_id
       t.integer :fixture_id
       t.integer :halftime_home
       t.integer :halftime_away

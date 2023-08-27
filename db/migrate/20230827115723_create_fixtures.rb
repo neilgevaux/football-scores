@@ -1,7 +1,7 @@
 class CreateFixtures < ActiveRecord::Migration[7.0]
   def change
     create_table :fixtures do |t|
-      t.integer :id
+      t.integer :fixture_id
       t.string :referee
       t.string :timezone
       t.datetime :date
