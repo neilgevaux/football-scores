@@ -1,17 +1,23 @@
 <h1>Teams</h1>
 
-<% if @teams %>
-<!-- <pre><% JSON.pretty_generate(@teams) %></pre> -->
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Team ID</th>
+      <th>Logo</th>
+      <th>Team name</th>
+      <th>Code</th>
+    </tr>
+  </thead>
 
-<ul>
-<% Team.all.each do |team| %>
-  <li>
-   <%= team.name %>
-  </li>
-  <% end %>
-</ul>
-
-
-<% else %>
-  <p>Failed to fetch data.</p>
-<% end %>
+  <tbody>
+    <% Team.all.each do |team| %>
+      <tr>
+        <td> <%= team.team_id %></td>
+        <td><img src="<%= team.logo %>" alt="Team logo" height="5%" width="5%" ></td>
+        <td> <%= team.name %></td>
+         <td> <%= team.code %></td>
+      </tr>
+     <% end %>
+  </tbody>
+</table>
