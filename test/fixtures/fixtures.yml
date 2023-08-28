@@ -1,27 +1,77 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  id: 1
+  fixture_id: 1
   referee: MyString
   timezone: MyString
-  date: 2023-08-27 12:57:23
+  date: 2023-08-28 13:35:56
   timestamp: 1
-  first_period_start: 1
-  second_period_start: 1
   venue_id: 1
+  venue_name: MyString
+  venue_city: MyString
   status_long: MyString
   status_short: MyString
-  status_elapsed: 1
+  elapsed: 1
+  league_id: 1
+  league_name: MyString
+  league_country: MyString
+  league_logo: MyString
+  league_flag: MyString
+  league_season: 1
+  league_round: MyString
+  home_team_id: 1
+  home_team_name: MyString
+  home_team_logo: MyString
+  home_team_winner: false
+  away_team_id: 1
+  away_team_name: MyString
+  away_team_logo: MyString
+  away_team_winner: false
+  home_goals: 1
+  away_goals: 1
+  halftime_home: 1
+  halftime_away: 1
+  fulltime_home: 1
+  fulltime_away: 1
+  extratime_home: 1
+  extratime_away: 1
+  penalty_home: 1
+  penalty_away: 1
 
 two:
-  id: 1
+  fixture_id: 1
   referee: MyString
   timezone: MyString
-  date: 2023-08-27 12:57:23
+  date: 2023-08-28 13:35:56
   timestamp: 1
-  first_period_start: 1
-  second_period_start: 1
   venue_id: 1
+  venue_name: MyString
+  venue_city: MyString
   status_long: MyString
   status_short: MyString
-  status_elapsed: 1
+  elapsed: 1
+  league_id: 1
+  league_name: MyString
+  league_country: MyString
+  league_logo: MyString
+  league_flag: MyString
+  league_season: 1
+  league_round: MyString
+  home_team_id: 1
+  home_team_name: MyString
+  home_team_logo: MyString
+  home_team_winner: false
+  away_team_id: 1
+  away_team_name: MyString
+  away_team_logo: MyString
+  away_team_winner: false
+  home_goals: 1
+  away_goals: 1
+  halftime_home: 1
+  halftime_away: 1
+  fulltime_home: 1
+  fulltime_away: 1
+  extratime_home: 1
+  extratime_away: 1
+  penalty_home: 1
+  penalty_away: 1

@@ -1,0 +1,27 @@
+<!-- app/views/fixtures/index.html.erb -->
+
+<h1>All Fixtures</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Fixture ID</th>
+      <th>Home Team</th>
+      <th>Away Team</th>
+      <th>Home Goals</th>
+      <th>Away Goals</th>
+      <!-- Add more columns as needed -->
+    </tr>
+  </thead>
+  <tbody>
+    <% @fixtures.each do |fixture| %>
+      <tr>
+        <td><%= fixture.fixture_id %></td>
+        <td><%= fixture.home_team_name %></td>
+        <td><%= fixture.away_team_name %></td>
+        <td><%= fixture.home_goals %></td>
+        <td><%= fixture.away_goals %></td>
+        <!-- Add more columns as needed -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
