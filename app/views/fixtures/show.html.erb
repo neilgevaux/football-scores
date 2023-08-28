@@ -1,27 +1,41 @@
 <!-- app/views/fixtures/index.html.erb -->
 
-<h1>All Fixtures</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Fixture ID</th>
-      <th>Home Team</th>
-      <th>Away Team</th>
-      <th>Home Goals</th>
-      <th>Away Goals</th>
-      <!-- Add more columns as needed -->
-    </tr>
-  </thead>
-  <tbody>
-    <% @fixtures.each do |fixture| %>
-      <tr>
-        <td><%= fixture.fixture_id %></td>
-        <td><%= fixture.home_team_name %></td>
-        <td><%= fixture.away_team_name %></td>
-        <td><%= fixture.home_goals %></td>
-        <td><%= fixture.away_goals %></td>
-        <!-- Add more columns as needed -->
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<h1 class="h2 extra-bold pt-5 pb-3" >All Fixtures</h1>
+
+<% @fixture_date.each do |date, fixtures| %>
+  <h2 class="h5"><%= date.strftime("%A %d %B %Y") %></h2>
+  <div class="row">
+    <div class="col-md-12">
+    <table class="table table-hover mb-5">
+      <thead>
+        <%# <tr> %>
+          <%# <th>Home Team</th>
+          <th>Home Goals</th>
+          <th>Away Goals</th>
+          <th>Away Team</th> %>
+        <%# </tr> %>
+      </thead>
+      <tbody>
+        <% fixtures.each do |fixture| %>
+          <tr>
+            <td><%= fixture.date.strftime("%H:%M") %></td>
+            <td class="w-25"><%= fixture.home_team_name %></td>
+            <td><img src="<%= fixture.home_team_logo %>" alt="Team logo" height="32" width="32"></td>
+            <td><%= fixture.home_goals %></td>
+            <td>
+            <% if fixture.home_goals.present? %>
+              -
+            <% else %>
+            
+            <% end %>
+            </td>
+            <td><%= fixture.away_goals %></td>
+            <td><img src="<%= fixture.away_team_logo %>" alt="Team logo" height="32" width="32"></td>
+            <td class="w-25"><%= fixture.away_team_name %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+  </div>
+<% end %>
