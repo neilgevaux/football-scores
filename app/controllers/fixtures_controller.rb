@@ -16,5 +16,7 @@ class FixturesController < ApplicationController
 
   def show
     @fixtures = Fixture.all
+
+    @fixture_date = Fixture.all.group_by { |fixture| fixture.date.to_date }
   end
 end
