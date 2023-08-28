@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   get 'teams/show'
 
   get 'leagues/show'
+
+  get 'venues/index'
 end
