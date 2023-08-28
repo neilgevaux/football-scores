@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   get 'leagues/show'
 
   get 'venues/index'
+
+  get 'api_predictions/show'
 end
