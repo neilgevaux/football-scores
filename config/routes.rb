@@ -7,4 +7,10 @@ Rails.application.routes.draw do
   get 'football_data/show_team_statistics'
 
   get 'fixtures/fixtures'
+
+  get 'teams/show'
+
+  get 'leagues/show'
+
+  get 'venues/index'
 end

@@ -1,0 +1,23 @@
+<h1>Venues</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>Capacity</th>
+      <th>Surface</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @venues.each do |venue| %>
+      <tr>
+        <td><%= venue.name %></td>
+        <td><%= venue.address %></td>
+        <td><%= venue.city %></td>
+        <td><%= venue.capacity %></td>
+        <td><%= venue.surface %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
