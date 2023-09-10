@@ -4,11 +4,12 @@
 
 <% @fixture_date.keys.sort.each do |date| %>
 <% fixtures = @fixture_date[date] %>
-<% if @date < date && @date < date + 7%>
-<p><%= date + 7 %></p>
+<% if date > @date && date <= @date + 7%>
+<p><%= @date + 7 %></p>
   <h2 class="h5"><%= date.strftime("%A %d %B %Y") %></h2>
   <div class="row">
     <div class="col-md-12">
+    <form method="post" action="submit_predictions"></form>
     <table class="table table-hover mb-5">
       <thead>
       </thead>
@@ -34,7 +35,11 @@
         <% end %>
       </tbody>
     </table>
+    
     </div>
+
   </div>
 <% end %>
 <% end %>
+     <button type="submit" class="btn btn-primary">Submit Predictions</button>
+        </form>
