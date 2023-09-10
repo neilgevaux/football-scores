@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 class TeamsController < ApplicationController
   def show
-
     # require 'httparty'
 
     # url = URI("https://api-football-v1.p.rapidapi.com/v3/teams?country=england")
@@ -13,6 +14,5 @@ class TeamsController < ApplicationController
     # puts response.body
 
     # @teams = JSON.parse(response.body)
-
   end
 end

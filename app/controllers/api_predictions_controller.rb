@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApiPredictionsController < ApplicationController
   def show
     # require 'httparty'
@@ -11,7 +13,7 @@ class ApiPredictionsController < ApplicationController
 
     # @prediction = JSON.parse(response.body)
 
-    json_file_path = Rails.root.join("db", "test_data.json")
+    json_file_path = Rails.root.join('db', 'test_data.json')
     json_data = File.read(json_file_path)
     @prediction = JSON.parse(json_data)
   end

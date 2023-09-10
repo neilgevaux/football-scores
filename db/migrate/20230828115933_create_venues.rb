@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 class CreateVenues < ActiveRecord::Migration[7.0]
   def change
     create_table :venues do |t|
-
       t.integer :team_id
       t.string :name
       t.string :address

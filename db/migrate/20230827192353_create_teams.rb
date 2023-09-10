@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateTeams < ActiveRecord::Migration[7.0]
   def change
     create_table :teams do |t|
@@ -9,7 +11,6 @@ class CreateTeams < ActiveRecord::Migration[7.0]
       t.string :logo
 
       t.timestamps
-
     end
   end
 end

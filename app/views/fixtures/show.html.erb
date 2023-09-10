@@ -2,8 +2,8 @@
 
 <!--Get the date key from the hash and sort the fixtures by date -->
 <% @fixture_date.keys.sort.each do |date| %>
-<% fixtures = @fixture_date[date] %>
-  <h2 class="h5"><%= date.strftime("%A %d %B %Y") %></h2>
+ <% fixtures = @fixture_date[date].sort_by { |fixture| [fixture.date, fixture.date.strftime("%H:%M")] } %>
+  <h2 class="h5 text-muted"><%= date.strftime("%A %d %B %Y") %></h2>
   <div class="row">
     <div class="col-md-12">
     <table class="table table-hover mb-5">
@@ -18,7 +18,7 @@
       <tbody>
         <% fixtures.each do |fixture| %>
           <tr>
-            <td><%= fixture.date.strftime("%H:%M") %></td>
+            <td class="text-muted"><%= fixture.date.strftime("%H:%M") %></td>
             <td><%= fixture.fixture_id %></td>
             <td class="w-25"><%= fixture.home_team_name %></td>
             <td><img src="<%= fixture.home_team_logo %>" alt="Team logo" height="32" width="32"></td>

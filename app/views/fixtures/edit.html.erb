@@ -1,12 +1,9 @@
 <h1 class="h2 extra-bold pt-5 pb-3">Add your predictions</h1>
 
-<p><%= @date %></p>
-
 <% @fixture_date.keys.sort.each do |date| %>
-<% fixtures = @fixture_date[date] %>
+ <% fixtures = @fixture_date[date].sort_by { |fixture| [fixture.date, fixture.date.strftime("%H:%M")] } %>
 <% if date > @date && date <= @date + 7%>
-<p><%= @date + 7 %></p>
-  <h2 class="h5"><%= date.strftime("%A %d %B %Y") %></h2>
+  <h2 class="h5 text-muted"><%= date.strftime("%A %d %B %Y") %></h2>
   <div class="row">
     <div class="col-md-12">
     <form method="post" action="submit_predictions"></form>
@@ -16,17 +13,16 @@
       <tbody>
         <% fixtures.each do |fixture| %>
           <tr>
-            <td><%= fixture.date.strftime("%H:%M") %></td>
-            <td><%= fixture.fixture_id %></td>
+            <td class="text-muted"><%= fixture.date.strftime("%H:%M") %></td>
             <td class="w-25"><%= fixture.home_team_name %></td>
             <td><img src="<%= fixture.home_team_logo %>" alt="Team logo" height="32" width="32"></td>
             <td><%= fixture.home_goals %></td>
             <td>
-            <% if fixture.home_goals.present? %>
-              -
-            <% else %>
-            
-            <% end %>
+            <td>
+              <input type="number" name="home_goals" class="form-control" value="<%= fixture.home_goals %>" min="0">
+            </td>
+            <td>
+              <input type="number" name="away_goals" class="form-control" value="<%= fixture.away_goals %>" min="0">
             </td>
             <td><%= fixture.away_goals %></td>
             <td><img src="<%= fixture.away_team_logo %>" alt="Team logo" height="32" width="32"></td>
@@ -41,5 +37,5 @@
   </div>
 <% end %>
 <% end %>
-     <button type="submit" class="btn btn-primary">Submit Predictions</button>
-        </form>
+<button type="submit" class="btn btn-primary">Submit Predictions</button>
+</form>
