@@ -1,4 +1,13 @@
 namespace :db do
+
+task clear_and_populate_fixtures: :environment do
+    # Clear the database
+    Fixture.delete_all
+
+  # Populate fixtures
+  Rake::Task['db:populate_fixtures'].invoke
+end
+
   desc "Populate fixtures table with JSON data"
   task populate_fixtures: :environment do
     require 'httparty'

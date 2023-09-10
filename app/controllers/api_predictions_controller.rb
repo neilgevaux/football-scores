@@ -13,8 +13,6 @@ class ApiPredictionsController < ApplicationController
 
     json_file_path = Rails.root.join("db", "test_data.json")
     json_data = File.read(json_file_path)
-    parsed_data = JSON.parse(json_data)
-
-    puts parsed_data
+    @prediction = JSON.parse(json_data)
   end
 end

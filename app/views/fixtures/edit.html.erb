@@ -1,20 +1,16 @@
-<h1 class="h2 extra-bold pt-5 pb-3" >All Fixtures</h1>
-<p><%= @fixtures.class %></p>
+<h1 class="h2 extra-bold pt-5 pb-3">Add your predictions</h1>
 
-<!--Get the date key from the hash and sort the fixtures by date -->
+<p><%= @date %></p>
+
 <% @fixture_date.keys.sort.each do |date| %>
 <% fixtures = @fixture_date[date] %>
+<% if @date < date && @date < date + 7%>
+<p><%= date + 7 %></p>
   <h2 class="h5"><%= date.strftime("%A %d %B %Y") %></h2>
   <div class="row">
     <div class="col-md-12">
     <table class="table table-hover mb-5">
       <thead>
-        <%# <tr> %>
-          <%# <th>Home Team</th>
-          <th>Home Goals</th>
-          <th>Away Goals</th>
-          <th>Away Team</th> %>
-        <%# </tr> %>
       </thead>
       <tbody>
         <% fixtures.each do |fixture| %>
@@ -40,4 +36,5 @@
     </table>
     </div>
   </div>
+<% end %>
 <% end %>

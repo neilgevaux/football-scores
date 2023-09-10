@@ -4,40 +4,248 @@
 <pre><% JSON.pretty_generate(@prediction) %></pre>
 <% end %>
 
-<table class="table table-hover">
-  <tbody>
-    <tr>
-      <td><%= @prediction["response"][0]["teams"]["home"]["name"] %></td>
+<div class="row d-flex align-items-center">
 
-    </tr>
-  </tbody>
-</table>
+      <div class="col">
+        <p class="h3 extra-bold"><%= @prediction["response"][0]["teams"]["home"]["name"] %></p>
+      </div>
+      <div class="col">
+        <img src="<%= @prediction["response"][0]["teams"]["home"]["logo"] %>" alt="Team logo" height="64" width="64">
+      </div>
+      <div class="col">
+        <img src="<%= @prediction["response"][0]["teams"]["away"]["logo"] %>" alt="Team logo" height="64" width="64">
+      </div>
+      <div class="col">
+        <p class="h3 extra-bold"><%= @prediction["response"][0]["teams"]["away"]["name"] %></p>
+      </div>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Winner</th>
-      <th>Win or Draw</th>
-      <th>Under/Over</th>
-      <th>Home Goals</th>
-      <th>Away Goals</th>
-      <th>Advice</th>
-      <th>Home Win %</th>
-      <th>Draw %</th>
-      <th>Away Win %</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= @prediction["response"][0]["predictions"]["winner"]["name"] %></td>
-      <td><%= @prediction["response"][0]["predictions"]["win_or_draw"] ? "Win or Draw" : "Loss" %></td>
-      <td><%= @prediction["response"][0]["predictions"]["under_over"] || '-' %></td>
-      <td><%= @prediction["response"][0]["predictions"]["goals"]["home"] %></td>
-      <td><%= @prediction["response"][0]["predictions"]["goals"]["away"] %></td>
-      <td><%= @prediction["response"][0]["predictions"]["advice"] %></td>
-      <td><%= @prediction["response"][0]["predictions"]["percent"]["home"] %></td>
-      <td><%= @prediction["response"][0]["predictions"]["percent"]["draw"] %></td>
-      <td><%= @prediction["response"][0]["predictions"]["percent"]["away"] %></td>
-    </tr>
-  </tbody>
-</table>
+
+  </div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="d-flex justify-content-center align-items-center">
+    <table class="table table-dark mt-5">
+      <thead>
+        <tr>
+          <th>Projected Winner</th>
+          <th>Under/Over</th>
+          <th>Home Goals</th>
+          <th>Away Goals</th>
+          <th>Home Win %</th>
+          <th>Draw %</th>
+          <th>Away Win %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= @prediction["response"][0]["predictions"]["winner"]["name"] %></td>
+          <td><%= @prediction["response"][0]["predictions"]["under_over"] || '-' %></td>
+          <td><%= @prediction["response"][0]["predictions"]["goals"]["home"] %></td>
+          <td><%= @prediction["response"][0]["predictions"]["goals"]["away"] %></td>
+          <td><%= @prediction["response"][0]["predictions"]["percent"]["home"] %></td>
+          <td><%= @prediction["response"][0]["predictions"]["percent"]["draw"] %></td>
+          <td><%= @prediction["response"][0]["predictions"]["percent"]["away"] %></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
+<h3 class="h5 extra-bold mt-3">Last 5 games</h3>
+<div class="row">
+  <div class="col-md-6">
+    <div class="d-flex justify-content-center align-items-center">
+    <table class="table table-hover">
+      <thead class="table-light">
+        <th>Form</th>
+        <th>Attack</th>
+        <th>Defence</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= @prediction["response"][0]["teams"]["home"]["last_5"]["form"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["home"]["last_5"]["att"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["home"]["last_5"]["def"] %></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+    <div class="col-md-6">
+    <div class="d-flex justify-content-center align-items-center">
+    <table class="table table-hover">
+       <thead class="table-light">
+        <th>Form</th>
+        <th>Attack</th>
+        <th>Defence</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= @prediction["response"][0]["teams"]["away"]["last_5"]["form"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["away"]["last_5"]["att"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["away"]["last_5"]["def"] %></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
+<h3 class="h5 extra-bold mt-3">Games</h3>
+<div class="row">
+  <div class="col-md-6">
+    <div class="d-flex justify-content-center align-items-center">
+    <table class="table table-hover mt-1">
+       <thead class="table-light">
+        <th>Played</th>
+        <th>Wins</th>
+        <th>Draws</th>
+        <th>Losses</th>
+        <th>For</th>
+        <th>Against</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= @prediction["response"][0]["teams"]["home"]["league"]["fixtures"]["played"]["total"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["home"]["league"]["fixtures"]["wins"]["total"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["home"]["league"]["fixtures"]["draws"]["total"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["home"]["league"]["fixtures"]["loses"]["total"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["home"]["league"]["goals"]["for"]["total"]["total"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["home"]["league"]["goals"]["against"]["total"]["total"] %></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+    <div class="col-md-6">
+    <div class="d-flex justify-content-center align-items-center">
+    <table class="table table-hover mt-1">
+       <thead class="table-light">
+        <th>Played</th>
+        <th>Wins</th>
+        <th>Draws</th>
+        <th>Losses</th>
+        <th>For</th>
+        <th>Against</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= @prediction["response"][0]["teams"]["away"]["league"]["fixtures"]["played"]["total"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["away"]["league"]["fixtures"]["wins"]["total"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["away"]["league"]["fixtures"]["draws"]["total"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["away"]["league"]["fixtures"]["loses"]["total"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["away"]["league"]["goals"]["for"]["total"]["total"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["away"]["league"]["goals"]["against"]["total"]["total"] %></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
+
+<h3 class="h5 extra-bold mt-3">Home</h3>
+<div class="row">
+  <div class="col-md-6">
+    <div class="d-flex justify-content-center align-items-center">
+    <table class="table table-hover mt-1">
+       <thead class="table-light">
+        <th>Played</th>
+        <th>Wins</th>
+        <th>Draws</th>
+        <th>Losses</th>
+        <th>For</th>
+        <th>Against</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= @prediction["response"][0]["teams"]["home"]["league"]["fixtures"]["played"]["home"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["home"]["league"]["fixtures"]["wins"]["home"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["home"]["league"]["fixtures"]["draws"]["home"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["home"]["league"]["fixtures"]["loses"]["home"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["home"]["league"]["goals"]["for"]["total"]["home"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["home"]["league"]["goals"]["against"]["total"]["home"] %></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+    <div class="col-md-6">
+    <div class="d-flex justify-content-center align-items-center">
+    <table class="table table-hover mt-1">
+       <thead class="table-light">
+        <th>Played</th>
+        <th>Wins</th>
+        <th>Draws</th>
+        <th>Losses</th>
+        <th>For</th>
+        <th>Against</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= @prediction["response"][0]["teams"]["away"]["league"]["fixtures"]["played"]["home"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["away"]["league"]["fixtures"]["wins"]["home"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["away"]["league"]["fixtures"]["draws"]["home"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["away"]["league"]["fixtures"]["loses"]["home"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["away"]["league"]["goals"]["for"]["total"]["home"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["away"]["league"]["goals"]["against"]["total"]["home"] %></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
+<h3 class="h5 extra-bold mt-3">Away</h3>
+<div class="row">
+  <div class="col-md-6">
+    <div class="d-flex justify-content-center align-items-center">
+    <table class="table table-hover mt-1">
+       <thead class="table-light">
+        <th>Played</th>
+        <th>Wins</th>
+        <th>Draws</th>
+        <th>Losses</th>
+        <th>For</th>
+        <th>Against</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= @prediction["response"][0]["teams"]["home"]["league"]["fixtures"]["played"]["away"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["home"]["league"]["fixtures"]["wins"]["away"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["home"]["league"]["fixtures"]["draws"]["away"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["home"]["league"]["fixtures"]["loses"]["away"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["home"]["league"]["goals"]["for"]["total"]["away"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["home"]["league"]["goals"]["against"]["total"]["away"] %></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+    <div class="col-md-6">
+    <div class="d-flex justify-content-center align-items-center">
+    <table class="table table-hover mt-1">
+       <thead class="table-light">
+        <th>Played</th>
+        <th>Wins</th>
+        <th>Draws</th>
+        <th>Losses</th>
+        <th>For</th>
+        <th>Against</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= @prediction["response"][0]["teams"]["away"]["league"]["fixtures"]["played"]["away"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["away"]["league"]["fixtures"]["wins"]["away"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["away"]["league"]["fixtures"]["draws"]["away"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["away"]["league"]["fixtures"]["loses"]["away"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["away"]["league"]["goals"]["for"]["total"]["away"] %></td>
+          <td><%= @prediction["response"][0]["teams"]["away"]["league"]["goals"]["against"]["total"]["away"] %></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>

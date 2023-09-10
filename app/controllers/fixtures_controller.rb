@@ -19,4 +19,12 @@ class FixturesController < ApplicationController
 
     @fixture_date = Fixture.all.group_by { |fixture| fixture.date.to_date }
   end
+
+  def edit
+    @fixtures = Fixture.all
+
+    @fixture_date = Fixture.all.group_by { |fixture| fixture.date.to_date }
+
+    @date = Date.today
+  end
 end

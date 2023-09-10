@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get 'fixtures/show'
 
+  get 'fixtures/edit'
+
   get 'teams/show'
 
   get 'leagues/show'
